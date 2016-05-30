@@ -10,7 +10,7 @@ from ..models import User
 class LoginForm(Form):
     email = StringField('Email', validators=[Required(), Length(1, 64),
                                              Email()])
-    password = PasswordField('Contraseña', validators=[Required()])
+    password = PasswordField('Contrasena', validators=[Required()])
     remember_me = BooleanField('Recordar')
     submit = SubmitField('Log In')
 
@@ -21,9 +21,9 @@ class RegistrationForm(Form):
     username = StringField('Usuario', validators=[
         Required(), Length(1, 64), Regexp('^[A-Za-z][A-Za-z0-9_.]*$', 0,
                                           'Los nombres de usuario solo deben contener letras, numeros, puntos y guion bajo.')])
-    password = PasswordField('Contraseña', validators=[
-        Required(), EqualTo('password2', message='Las contraseñas deben coincidir.')])
-    password2 = PasswordField('Confirmar contraseña', validators=[Required()])
+    password = PasswordField('Contrasena', validators=[
+        Required(), EqualTo('password2', message='Las contrasenas deben coincidir.')])
+    password2 = PasswordField('Confirmar contrasena', validators=[Required()])
     submit = SubmitField('Registrar')
 
     def validate_email(self, field):
@@ -36,26 +36,26 @@ class RegistrationForm(Form):
 
 
 class ChangePasswordForm(Form):
-    old_password = PasswordField('Contraseña anterior', validators=[Required()])
-    password = PasswordField('Nueva contraseña', validators=[
-        Required(), EqualTo('password2', message='Las contraseñas deben coincidir.')])
-    password2 = PasswordField('Confirmar nueva contraseña', validators=[Required()])
+    old_password = PasswordField('Contrasena anterior', validators=[Required()])
+    password = PasswordField('Nueva contrasena', validators=[
+        Required(), EqualTo('password2', message='Las contrasenas deben coincidir.')])
+    password2 = PasswordField('Confirmar nueva contrasena', validators=[Required()])
     submit = SubmitField('Actualizar')
 
 
 class PasswordResetRequestForm(Form):
     email = StringField('Email', validators=[Required(), Length(1, 64),
                                              Email()])
-    submit = SubmitField('Restaurar contraseña')
+    submit = SubmitField('Restaurar contrasena')
 
 
 class PasswordResetForm(Form):
     email = StringField('Email', validators=[Required(), Length(1, 64),
                                              Email()])
-    password = PasswordField('Nueva contraseña', validators=[
-        Required(), EqualTo('password2', message='Las contraseñas deben coincidir.')])
-    password2 = PasswordField('Confirmar contraseña', validators=[Required()])
-    submit = SubmitField('Restaurar contraseña')
+    password = PasswordField('Nueva contrasena', validators=[
+        Required(), EqualTo('password2', message='Las contrasenas deben coincidir.')])
+    password2 = PasswordField('Confirmar contrasena', validators=[Required()])
+    submit = SubmitField('Restaurar contrasena')
 
     def validate_email(self, field):
         if User.query.filter_by(email=field.data).first() is None:
@@ -65,7 +65,7 @@ class PasswordResetForm(Form):
 class ChangeEmailForm(Form):
     email = StringField('Nuevo Email', validators=[Required(), Length(1, 64),
                                                  Email()])
-    password = PasswordField('Contraseña', validators=[Required()])
+    password = PasswordField('Contrasena', validators=[Required()])
     submit = SubmitField('Actualizar Email')
 
     def validate_email(self, field):
