@@ -2,8 +2,8 @@
 import os
 from app import create_app, db
 from app.models import User, Follow, Role, Permission, Post, Comment
-from flask.ext.script import Manager, Shell
-from flask.ext.migrate import Migrate, MigrateCommand
+from flask_script import Manager, Shell
+from flask_migrate import Migrate, MigrateCommand
 
 app = create_app(os.getenv('FLASK_CONFIG') or 'default')
 manager = Manager(app)
@@ -27,7 +27,7 @@ def test():
 @manager.command
 def deploy():
     """Run deployment tasks."""
-    from flask.ext.migrate import upgrade
+    from flask_migrate import upgrade
     from app.models import Role, User
 
     #migrate database to the latest revision
