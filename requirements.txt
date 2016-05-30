@@ -29,3 +29,4 @@ six==1.10.0
 SQLAlchemy==0.9.9
 Werkzeug==0.11.10
 WTForms==2.1
+psycopg2==2.5.1
