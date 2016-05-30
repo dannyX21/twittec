@@ -1,20 +1,20 @@
 {% extends "base.html" %}
 
-{% block title %}Flasky - Confirm your accont{% endblock %}
+{% block title %}TwitTec - Confirma tu Cuenta{% endblock %}
 
 {% block page_content %}
 <div class="page-header">
     <h1>
-        Hello, {{ current_user.username }}!
+        Hola, {{ current_user.username }}!
     </h1>
-    <h3>You have not confirmed your account yet.</h3>
+    <h3>Tu cuenta aun no ha sido confirmada.</h3>
     <p>
-        Before you can access this site you need to confirm your account.
-        Check your inbox, you should have received an email with a confirmation link.
+        Para ingresar a TwitTec, primero confirma tu cuenta.
+        Revisa tu correo. Debes haber recibido un enlace de confirmacion.
     </p>
     <p>
-        Need another confirmation email?
-        <a href="{{ url_for('auth.resend_confirmation') }}">Click here</a>
+        ¿Necesitas otro correo de confirmacion?
+        <a href="{{ url_for('auth.resend_confirmation') }}">Haz click aqui</a>
     </p>
 </div>
 {% endblock %}

@@ -1,1 +1,1 @@
-User {{ user.username }} has joined.
+El Usuario {{ user.username }} ha ingresado a twitTec.
