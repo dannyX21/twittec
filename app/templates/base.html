@@ -41,11 +41,11 @@
                     <ul class="dropdown-menu">
                         <li><a href="{{ url_for('auth.change_password') }}">Cambiar contrasena</a></li>
                         <li><a href="{{ url_for('auth.change_email_request') }}">Cambiar Email</a></li>
-                        <li><a href="{{ url_for('auth.logout') }}">Log Out</a></li>
+                        <li><a href="{{ url_for('auth.logout') }}"><img src="{{ url_for('static', filename='logout.png') }}" height=40></a></li>
                     </ul>
                 </li>
                 {% else %}
-                <li><a href="{{ url_for('auth.login') }}">Log In</a></li>
+                <li><a href="{{ url_for('auth.login') }}"><img src="{{ url_for('static', filename='login.png') }}" height=40></a></li>
                 {% endif %}
             </ul>
         </div>
