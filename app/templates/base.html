@@ -23,13 +23,48 @@
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li><a href="{{ url_for('main.index') }}"><img src="{{ url_for('static', filename='home.png') }}" height=40></a></li>
+
                 {% if current_user.is_authenticated %}
                   <li><a href="{{ url_for('main.user', username=current_user.username) }}"><img src="{{ url_for('static', filename='profile.png') }}" height=40></a></li>
                 {% endif %}
                 {% if current_user.can(Permission.MODERATE_COMMENTS) %}
                   <li><a href="{{ url_for('main.moderate')}}"><img src="{{ url_for('static', filename='moderate.png') }}" height=40></a></li>
                 {% endif %}
+                <li>
+                  <a href="#" data-toggle="modal" data-target="#myModal"><img src="{{ url_for('static', filename='about.png') }}" height=40></a>
+                  <div id="myModal" class="modal fade" role="dialog">
+                    <div class="modal-dialog modal-lg">
+
+                      <!-- Modal content-->
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal">&times;</button>
+                          <h4 class="modal-title">Acerca de <img src="{{ url_for('static', filename='logo.png') }}" height=30></h4>
+                        </div>
+                        <div class="modal-body">
+                          <p><strong>TwitTec</strong> es una red social desarrollada por alumnos de 4to Semestre de la Carrera de Ingenieria en Sistemas Computacionales para la <b>ExpoTec 2016</b>  .</p>
+                          <p>Fue desarrollada utilizando Software Libre:</p>
+                          <p>
+                            <ul>
+                              <li>Sistema Operativo: <b>Linux Ubuntu</b></li>
+                              <li>DBMS: <b>SQLite & PostgreSQL</b></li>
+                              <li>Lenguaje de Programacion: <b>Python3</b></li>
+                              <li>Framework (Backend): <b>Flask</b></li>
+                              <li>Framework (Frontend): <b>Bootstrap / jQuery</b></li>
+                              <li>Editor: <b>Komodo / Atom</b></li>
+                            </ul>
+                          </p>
+                          <p>Puedes descargar el codigo fuente de la aplicacion en la siguiente direccion:</p>
+                          <a href="https://github.com/dannyX21/twittec/">https://github.com/dannyX21/twittec/</a>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+                </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 {% if current_user.is_authenticated %}
@@ -41,6 +76,7 @@
                     <ul class="dropdown-menu">
                         <li><a href="{{ url_for('auth.change_password') }}">Cambiar contrasena</a></li>
                         <li><a href="{{ url_for('auth.change_email_request') }}">Cambiar Email</a></li>
+                        <li><a href="https://es.gravatar.com/emails/">Cambiar tu Avatar</a></li>
                         <li><a href="{{ url_for('auth.logout') }}"><img src="{{ url_for('static', filename='logout.png') }}" height=40></a></li>
                     </ul>
                 </li>
